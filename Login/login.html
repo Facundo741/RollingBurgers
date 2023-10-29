@@ -6,32 +6,62 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 <body>
     <main>
         
-        <div class="container">
-            <div class="row">
-                <div class="border col-6">
-                    <div class="mb-3">
-                        <h3 class="d-flex justify-content-center">Iniciar Sesión</h3>
-                        <label for="correo" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="correo">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="password">
-                            <button class="btn border border-start-0 rounded-end-pill" type="button" id="viewPassword">
-                                <i id="password" class="bi bi-eye-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Registrate</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>o utiliza tu correo electrónico</span>
+			<input type="text" placeholder="Nombre y Apellido" />
+			<input type="email" placeholder="Correo Electrónico" />
+			<input type="password" placeholder="Contraseña" />
+			<button>Registrarse</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Iniciar Sesión</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>o usa tu cuenta</span>
+			<input type="email" placeholder="Correo Electrónico" />
+			<input type="password" placeholder="Contraseña"/>
+			<a href="#">Olvidaste tu contraseña?</a>
+			<button>Iniciar Sesión</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>¡Estas aqui!</h1>
+				<p>Asi que ya estamos listos para disfrutar de una deliciosa hamburguesa juntos!🍔<br>¡Buen provecho! 😄</p>
+				<button class="ghost" id="signIn">Iniciar sesión</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>¡Bienvenido! 🍔</h1>
+				<p>¿Te apetece una hamburguesa deliciosa? ¡Únete a nosotros y disfruta de una experiencia culinaria increíble!</p>
+				<button class="ghost" id="signUp">Registrarse</button>
+			</div>
+		</div>
+	</div>
+</div>
+        
         
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
