@@ -1,13 +1,9 @@
-let password = document.getElementById('password');
-let viewPassword = document.getElementById('viewPassword');
-let click = false;
-
-viewPassword.addEventListener('click', (e)=>{
-    if(!click){
-    password.type = 'text'
-    click = true
-    }else if(click){
-    password.type = 'password'
-    click = false
-    }
-})
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+signUpButton.addEventListener('click', () => {
+container.classList.add("right-panel-active");
+});
+signInButton.addEventListener('click', () => {
+container.classList.remove("right-panel-active");
+});
