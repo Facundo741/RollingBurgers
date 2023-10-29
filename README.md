@@ -1,8 +1,9 @@
 # RollingBurgers
 
+
 <p align="center">
-  <a href="https://postimg.cc/fVvqrNv8">
-    <img src="https://i.postimg.cc/mrxxhZ1W/logo-proyecto.png" alt="Logo de mi proyecto">
+  <a href="https://postimg.cc/LnBWDbBH">
+    <img src="https://i.postimg.cc/VL3cfyJb/fondo-readme.png" alt="Fondo del README">
   </a>
 </p>
 
