@@ -9,17 +9,11 @@ document.getElementById("userFormLogin").addEventListener("submit", (e) => {
     console.log("Correo Electrónico:", email);
     console.log("Contraseña:", password);
 
-    
     limpiarCampos();
-
 
 });
 
 function limpiarCampos(email, password) {
-    
     document.getElementById("email_IS").value = "";
     document.getElementById("password_IS").value = "";
-
-
-
 };
