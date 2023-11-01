@@ -1,19 +1,31 @@
-//Tomar inputs del login
+import { getFromData } from './utils.js'; 
+import db from '../fakeDb/db.json' assert {type: 'json'}; 
 
-document.getElementById("userFormLogin").addEventListener("submit", (e) => {
+
+
+const login = (e) => {
     e.preventDefault();
+
+    const emailInput = document.getElementById('email_IS');
+    const passwordInput = document.getElementById('password_IS');
     
-    const email = document.getElementById("email_IS").value;
-    const password = document.getElementById("password_IS").value;
 
-    console.log("Correo Electrónico:", email);
-    console.log("Contraseña:", password);
+    const formData = getFromData(e);
+    const userExist = db.users.find((user) => user.email === formData.email_IS);
 
-    limpiarCampos();
+    emailInput.classList.remove('is-invalid');
+    passwordInput.classList.remove('is-invalid');
 
-});
+    if (!userExist) {
+        emailInput.classList.add('is-invalid');
+    }
+    if (formData.password_IS !== userExist.password) {
+        passwordInput.classList.add('is-invalid');
+        return;
+    }
 
-function limpiarCampos(email, password) {
-    document.getElementById("email_IS").value = "";
-    document.getElementById("password_IS").value = "";
 };
+
+
+
+document.getElementById("userFormLogin").addEventListener("submit", login);

@@ -1,0 +1,11 @@
+{
+    "users": [
+        {
+        "id": 1,
+        "nombre": "Facundo Santillan",
+        "email": "santillanfacundo@gmail.com",
+        "password": "1234",
+        "rol": "admin"
+        }
+    ]
+}
