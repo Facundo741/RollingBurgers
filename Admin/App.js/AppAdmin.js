@@ -1,162 +1,97 @@
-function Validaciones(){
-    let codigo = document.getElementById("exampleCode").value;
-    let Nombre = document.getElementById("exampleNombre").value;
-    let Precio = document.getElementById("examplePrecio").value;
-    let Categoria = document.getElementById("exampleCategoria").value;
-    let Imagenes = document.getElementById("exampleImg").value;
-    let Descripcion = document.getElementById("exampleDescripción").value;
-    let Stock = document.getElementById("exampleStock").value;
-
-    if (
-        codigo.trim() === "" ||
-        Nombre.trim() === "" ||
-        Precio.trim() === "" ||
-        Categoria.trim() === "" ||
-        Imagenes.trim() === "" ||
-        Descripcion.trim() === "" ||
-        Stock.trim() === ""
-    ) {
-        alert("Todos los campos son obligatorios. Por favor, llénelos todos.");
-        return false;
+function Validaciones() {
+    const fields = ["exampleCode", "exampleNombre", "examplePrecio", "exampleCategoria", "exampleImg", "exampleDescripción", "exampleStock"];
+    for (const field of fields) {
+        const value = document.getElementById(field).value;
+        if (value.trim() === "") {
+            alert("Todos los campos son obligatorios. Por favor, llénelos todos.");
+            return false;
+        }
     }
     return true;
 }
 
-function leer(){
+function leer() {
+    const listar = JSON.parse(localStorage.getItem('listar')) || [];
+    const tableBody = document.getElementById('Tabledatos');
+    tableBody.innerHTML = '';
 
-    let listar;
+    listar.forEach((element, index) => {
+        const row = document.createElement('tr');
 
-    if (localStorage.getItem('listar') == null){
-        listar = [];
+        row.innerHTML = `
+            <td>${element.codigo}</td>
+            <td>${element.Nombre}</td>
+            <td>${element.Precio}</td>
+            <td>${element.Categoria}</td>
+            <td><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
+            <td>${element.Descripcion}</td>
+            <td>${element.Stock}</td>
+            <td>
+                <button onclick="deleteData(${index})" class="btn btn-danger">Eliminar</button>
+                <button onclick="editData(${index})" class="btn btn-warning">Editar</button>
+            </td>
+        `;
 
-    }else{
-        listar = JSON.parse(localStorage.getItem('listar'));
-    }
-
-    let html = "";
-
-    listar.forEach(function (element ,index ) {
-        html += "<tr>";
-        html += "<td>" + element.codigo + "</td>";
-        html += "<td>" + element.Nombre + "</td>";
-        html += "<td>" + element.Precio + "</td>";
-        html += "<td>" + element.Categoria + "</td>";
-        html += '<td><img src="' + element.Imagenes + '" alt="Imagen" style="max-height: 50px"></td>';
-        html += "<td>" + element.Descripcion + "</td>";
-        html += "<td>" + element.Stock + "</td>";
-        html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Eliminar</button> <button onclick="editData(' + index + ')" class="btn btn-warning">Editar</button>';
-        html += "<tr>";
-    });
-
-    document.querySelector('#Tabledatos').innerHTML = html;
+        tableBody.appendChild(row);
+    });
 }
 
-    leer();
+function addData() {
+    if (Validaciones()) {
+        const newItem = {
+            codigo: document.getElementById("exampleCode").value,
+            Nombre: document.getElementById("exampleNombre").value,
+            Precio: document.getElementById("examplePrecio").value,
+            Categoria: document.getElementById("exampleCategoria").value,
+            Imagenes: document.getElementById("exampleImg").value,
+            Descripcion: document.getElementById("exampleDescripción").value,
+            Stock: document.getElementById("exampleStock").value
+        };
 
-function addData(){
-    if(Validaciones() == true){
-
-        let codigo = document.getElementById("exampleCode").value;
-        let Nombre = document.getElementById("exampleNombre").value;
-        let Precio = document.getElementById("examplePrecio").value;
-        let Categoria = document.getElementById("exampleCategoria").value;
-        let Imagenes = document.getElementById("exampleImg").value;
-        let Descripcion = document.getElementById("exampleDescripción").value;
-        let Stock = document.getElementById("exampleStock").value;
-
-        let listar;
-
-        if(localStorage.getItem('listar') == null){
-            listar = []
-        }else{
-            listar = JSON.parse(localStorage.getItem('listar'));
-        }
-        listar.push({
-            codigo: codigo,
-            Nombre: Nombre,
-            Precio: Precio,
-            Categoria: Categoria,
-            Imagenes: Imagenes,
-            Descripcion: Descripcion,
-            Stock: Stock
-        });
-
+        const listar = JSON.parse(localStorage.getItem('listar')) || [];
+        listar.push(newItem);
         localStorage.setItem('listar', JSON.stringify(listar));
-
         leer();
-        document.getElementById('exampleCode').value="";
-        document.getElementById('exampleNombre').value ="";
-        document.getElementById('examplePrecio').value ="";
-        document.getElementById('exampleCategoria').value ="";
-        document.getElementById('exampleImg').value ="";
-        document.getElementById('exampleDescripción').value ="";
-        document.getElementById('exampleStock').value ="";
     }
 }
 
-
-function deleteData(index){
-    if (localStorage.getItem('listar') == null){
-        listar = [];
-
-    }else{
-        listar = JSON.parse(localStorage.getItem('listar'));
-    }
-
+function deleteData(index) {
+    const listar = JSON.parse(localStorage.getItem('listar')) || [];
     listar.splice(index, 1);
     localStorage.setItem('listar', JSON.stringify(listar));
-
     leer();
 }
 
-function editData(index){
-    
-    document.getElementById('btnAdd').style.display ='none';
-    document.getElementById('upbtnAdd').style.display ='block';
 
-    if (localStorage.getItem('listar') == null){
-        listar = [];
+function editData(index) {
+    document.getElementById('btnAdd').style.display = 'none';
+    document.getElementById('upbtnAdd').style.display = 'block';
 
-    }else{
-        listar = JSON.parse(localStorage.getItem('listar'));
+    const listar = JSON.parse(localStorage.getItem('listar')) || [];
+    const item = listar[index];
+
+    const fields = ["exampleCode", "exampleNombre", "examplePrecio", "exampleCategoria", "exampleImg", "exampleDescripción", "exampleStock"];
+
+    for (const field of fields) {
+        document.getElementById(field).value = item[field.substring(7)];
     }
 
-        document.getElementById('exampleCode').value= listar[index].codigo;
-        document.getElementById('exampleNombre').value = listar[index].Nombre;
-        document.getElementById('examplePrecio').value = listar[index].Precio;
-        document.getElementById('exampleCategoria').value = listar[index].Categoria;
-        document.getElementById('exampleImg').value = listar[index].Imagenes;
-        document.getElementById('exampleDescripción').value = listar[index].Descripcion;
-        document.getElementById('exampleStock').value = listar[index].Stock;
-
-        document.querySelector('#upbtnAdd').onclick = function (){
-            if(Validaciones() == true){
-                listar[index].codigo = document.getElementById('exampleCode').value;
-                listar[index].Nombre = document.getElementById('exampleNombre').value;
-                listar[index].Precio = document.getElementById('examplePrecio').value;
-                listar[index].Categoria = document.getElementById('exampleCategoria').value;
-                listar[index].Imagenes = document.getElementById('exampleImg').value;
-                listar[index].Descripcion = document.getElementById('exampleDescripción').value;
-                listar[index].Stock = document.getElementById('exampleStock').value;
-
-                localStorage.setItem('listar', JSON.stringify(listar));
-                leer()
-
-                document.getElementById('exampleCode').value="";
-                document.getElementById('exampleNombre').value ="";
-                document.getElementById('examplePrecio').value ="";
-                document.getElementById('exampleCategoria').value ="";
-                document.getElementById('exampleImg').value ="";
-                document.getElementById('exampleDescripción').value ="";
-                document.getElementById('exampleStock').value ="";
-
-                document.getElementById('btnAdd').style.diplay = 'block';
-                document.getElementById('upbtnAdd').style.diplay = 'none';
-
+    document.querySelector('#upbtnAdd').onclick = function () {
+        if (Validaciones()) {
+            for (const field of fields) {
+                item[field.substring(7)] = document.getElementById(field).value;
+                document.getElementById(field).value = "";
             }
-        }
 
+            localStorage.setItem('listar', JSON.stringify(listar));
+            leer();
+
+            document.getElementById('btnAdd').style.display = 'block';
+            document.getElementById('upbtnAdd').style.display = 'none';
+        }
+    }
 }
 
 
+leer();
 
