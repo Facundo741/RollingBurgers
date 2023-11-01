@@ -19,14 +19,14 @@ function leer() {
         const row = document.createElement('tr');
 
         row.innerHTML = `
-            <td>${element.codigo}</td>
-            <td>${element.Nombre}</td>
-            <td>${element.Precio}</td>
-            <td>${element.Categoria}</td>
-            <td><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
-            <td>${element.Descripcion}</td>
-            <td>${element.Stock}</td>
-            <td>
+            <td class="text-center">${element.codigo}</td>
+            <td class="text-center">${element.Nombre}</td>
+            <td class="text-center">${element.Precio}</td>
+            <td class="text-center">${element.Categoria}</td>
+            <td ><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
+            <td class="text-center">${element.Descripcion}</td>
+            <td class="text-center">${element.Stock}</td>
+            <td class="text-center">
                 <button onclick="deleteData(${index})" class="btn btn-danger">Eliminar</button>
                 <button onclick="editData(${index})" class="btn btn-warning">Editar</button>
             </td>
