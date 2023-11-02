@@ -22,6 +22,7 @@ const registro = (e) => {
 
     if (!userExist) {
         emailInput.classList.add('is-invalid');
+        return;
     }
     
 

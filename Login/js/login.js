@@ -17,6 +17,7 @@ const login = (e) => {
 
     if (!userExist) {
         emailInput.classList.add('is-invalid');
+        return;
     }
     if (formData.password_IS !== userExist.password) {
         passwordInput.classList.add('is-invalid');
