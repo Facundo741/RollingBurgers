@@ -33,7 +33,7 @@ function leer() {
         `;
 
         tableBody.appendChild(row);
-    });
+    });
 }
 
 function addData() {
@@ -83,7 +83,6 @@ function editData(index) {
                 document.getElementById(field).value = "";
             }
 
-            localStorage.setItem('listar', JSON.stringify(listar));
             leer();
 
             document.getElementById('btnAdd').style.display = 'block';
