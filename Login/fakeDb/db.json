@@ -2,8 +2,8 @@
     "users": [
         {
         "id": 1,
-        "nombre": "Facundo Santillan",
-        "email": "santillanfacundo@gmail.com",
+        "nombre": "Admin",
+        "email": "admin@gmail.com",
         "password": "1234",
         "rol": "admin"
         }
