@@ -7,6 +7,7 @@ signUpButton.addEventListener('click', () => {
     container.classList.add("right-panel-active");
     document.getElementById("email_IS").value="";
     document.getElementById("password_IS").value="";
+    
 
 });
 signInButton.addEventListener('click', () => {
@@ -14,6 +15,8 @@ signInButton.addEventListener('click', () => {
     document.getElementById("name_Reg").value="";
     document.getElementById("email_Reg").value="";
     document.getElementById("password_Reg").value="";
+    
+    
 });
 
 
