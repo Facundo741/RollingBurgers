@@ -12,10 +12,15 @@ const login = (e) => {
     passwordInput.classList.remove('is-invalid');
 
     const formData = getFromData(e);
-    console.log('Email de inicio de sesión:', formData.email_IniciarSesion);
+    
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailRegex.test(formData.email_IniciarSesion)) {
+        emailInput.classList.add('is-invalid');
+        showErrorMessage('Correo electrónico no válido.');
+        return;
+    }
 
     const userExist = users.find((user) => user.correo === formData.email_IniciarSesion);
-    console.log('Usuario existente:', userExist);
 
     if (!userExist) {
         emailInput.classList.add('is-invalid');
@@ -23,12 +28,12 @@ const login = (e) => {
         return;
     }
 
+    const lowercaseEmail = formData.email_IniciarSesion.toLowerCase();
     if (formData.password_IniciarSesion !== userExist.password) {
         passwordInput.classList.add('is-invalid');
         showErrorMessage('La contraseña es incorrecta.');
         return;
     }
-
     
     window.location.href = '../Principal/index.html';
 };
@@ -37,7 +42,6 @@ function showErrorMessage(message) {
     const errorAlert = document.createElement('div');
     errorAlert.classList.add('alert', 'alert-danger');
     errorAlert.textContent = message;
-
     const loginForm = document.getElementById('userFormLogin');
     loginForm.parentNode.insertBefore(errorAlert, loginForm.nextSibling);
 }
