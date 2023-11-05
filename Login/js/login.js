@@ -13,7 +13,7 @@ const login = (e) => {
 
     const formData = getFromData(e);
     
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
     if (!emailRegex.test(formData.email_IniciarSesion)) {
         emailInput.classList.add('is-invalid');
         showErrorMessage('Correo electrónico no válido.');
