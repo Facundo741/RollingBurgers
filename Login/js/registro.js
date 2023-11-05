@@ -21,7 +21,7 @@ const registro = (e) => {
     nameInput.classList.remove('is-invalid');
     emailInput.classList.remove('is-invalid');
     passwordInput.classList.remove('is-invalid');
-    errorAlert.style.display = 'none';  
+    errorAlert.style.display = 'none';
 
     const formData = getFromData(e);
 
@@ -49,10 +49,12 @@ const registro = (e) => {
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
-    
-    const userExists = users.find(user => user.email === lowercaseEmail);
+    const userExistsLocalStorage = users.find((user) => user.email === lowercaseEmail);
 
-    if (userExists) {
+    // Buscar si el usuario ya existe en db.json
+    const userExistsDB = db.users.find((user) => user.correo === lowercaseEmail);
+
+    if (userExistsLocalStorage || userExistsDB) {
         emailInput.classList.add('is-invalid');
         errorAlert.style.display = 'block';
         errorAlert.textContent = 'El usuario ya existe. Por favor, inicia sesión.';
@@ -63,7 +65,7 @@ const registro = (e) => {
         nombre: formData.nombreApe_Registro,
         rol: "usuario",
         email: lowercaseEmail,
-        password: formData.password_Registro
+        password: formData.password_Registro,
     };
 
     users.push(newUser);

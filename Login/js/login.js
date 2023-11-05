@@ -1,7 +1,8 @@
 import { getFromData } from './utils.js';
-import db from '../fakeDb/db.json' assert {type: "json"};
+import db from '../fakeDb/db.json' assert {type: 'json'};
 
-const users = db.users;
+
+const localStorageUsers = JSON.parse(localStorage.getItem('users')) || [];
 
 function showErrorMessage(message) {
     const errorAlert = document.createElement('div');
@@ -32,18 +33,29 @@ const login = (e) => {
     }
 
     
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const localStorageUser = localStorageUsers.find((user) => user.email === emailInputValue);
 
-    const userExist = users.find((user) => user.email === emailInputValue);
+    if (localStorageUser) {
+        if (localStorageUser.password === passwordInputValue) {
+            window.location.href = '../Principal/index.html';
+        } else {
+            passwordInput.classList.add('is-invalid');
+            showErrorMessage('La contraseña es incorrecta.');
+        }
+        return;
+    }
 
-    if (!userExist) {
+    
+    const dbUser = db.users.find((user) => user.correo === emailInputValue);
+
+    if (!dbUser) {
         emailInput.classList.add('is-invalid');
         showErrorMessage('El usuario no existe.');
         return;
     }
 
-    if (userExist.password === passwordInputValue) {
-        window.location.href = '../Principal/index.html'; 
+    if (dbUser.password === passwordInputValue) {
+        window.location.href = '../Principal/index.html';
     } else {
         passwordInput.classList.add('is-invalid');
         showErrorMessage('La contraseña es incorrecta.');
