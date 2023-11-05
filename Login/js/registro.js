@@ -63,3 +63,7 @@ const registro = (e) => {
 };
 
 document.getElementById("userFormRegistro").addEventListener("submit", registro);
+
+
+
+//comentarios de regist
