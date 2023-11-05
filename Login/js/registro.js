@@ -21,6 +21,7 @@ const registro = (e) => {
     nameInput.classList.remove('is-invalid');
     emailInput.classList.remove('is-invalid');
     passwordInput.classList.remove('is-invalid');
+    errorAlert.style.display = 'none';  
 
     const formData = getFromData(e);
 
@@ -31,13 +32,13 @@ const registro = (e) => {
         errorAlert.textContent = 'Correo electrónico no válido.';
         return;
     }
-    
+
     if (formData.nombreApe_Registro.length < 10) {
         nameInput.classList.add('is-invalid');
         showErrorMessage('El nombre y apellido deben tener al menos 10 caracteres.');
         return;
     }
-    
+
     if (formData.password_Registro.length < 8) {
         passwordInput.classList.add('is-invalid');
         showErrorMessage('La contraseña debe tener al menos 8 caracteres.');
@@ -47,6 +48,16 @@ const registro = (e) => {
     const lowercaseEmail = formData.email_Registro.toLowerCase();
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    
+    const userExists = users.find(user => user.email === lowercaseEmail);
+
+    if (userExists) {
+        emailInput.classList.add('is-invalid');
+        errorAlert.style.display = 'block';
+        errorAlert.textContent = 'El usuario ya existe. Por favor, inicia sesión.';
+        return;
+    }
 
     const newUser = {
         nombre: formData.nombreApe_Registro,
@@ -63,7 +74,3 @@ const registro = (e) => {
 };
 
 document.getElementById("userFormRegistro").addEventListener("submit", registro);
-
-
-
-//comentarios de regist
