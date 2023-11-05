@@ -17,7 +17,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-container sign-up-container">
-							<form action="#">
+							<form id="userFormRegistro">
 								<h1>Regístrate</h1>
 								<div class="social-container">
 									<a href="#" class="social">
@@ -28,16 +28,20 @@
 									</a>
 								</div>
 								<span>o utiliza tu correo electrónico</span>
-								<input type="text" class="form-control" placeholder="Nombre y Apellido">
-								<input type="email" class="form-control" placeholder="Correo Electrónico">
-								<input type="password" class="form-control" placeholder="Contraseña">
-								<button class="btn btn-primary">Registrarse</button>
+								<input type="text" class="form-control" placeholder="Nombre y Apellido" id="name_Reg" required name="nombreApe_Registro">
+								<input type="email" class="form-control" placeholder="Correo Electrónico" id="email_Reg"  required name="email_Registro">
+								<div class="invalid-feedback">
+								Usuario registrado.
+								</div>
+								<input type="password" class="form-control" placeholder="Contraseña" id="password_Reg" required name="password_Registro">
+								
+								<button type="submit" class="btn btn-primary" id="guardar_Registro">Registrarse</button>
 							</form>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-container sign-in-container">
-							<form action="#">
+							<form id="userFormLogin">
 								<h1>Iniciar Sesión</h1>
 								<div class="social-container">
 									<a href="#" class="social">
@@ -48,24 +52,30 @@
 									</a>
 								</div>
 								<span>o usa tu cuenta</span>
-								<input type="email" class="form-control" placeholder="Correo Electrónico" required>
-								<input type="password" class="form-control" placeholder="Contraseña" required>
+								<input id="email_IS" type="email" class="form-control" placeholder="Correo Electrónico" required name="email_IniciarSesion">
+								<div class="invalid-feedback">
+								El usuario no se encuentra.
+								</div>
+								<input id="password_IS" type="password" class="form-control" placeholder="Contraseña" required name="password_IniciarSesion">
+								<div class="invalid-feedback">
+								El usuario o contraseña es incorrecto
+								</div>
 								<a href="#">¿Olvidaste tu contraseña?</a>
-								<button class="btn btn-primary">Iniciar Sesión</button>
+								<button type="submit" id="guardar_InicioSesion" class="btn btn-primary">Iniciar Sesión</button>
 							</form>
 						</div>
 					</div>
 				</div>
 				<div class="overlay-container">
 					<div class="overlay">
-						<div class="overlay-panel overlay-left">
+						<div class="overlay-panel overlay-left ">
 							<h1>¡Estás aquí!</h1>
-							<p>Así que ya estamos listos para disfrutar de una deliciosa hamburguesa juntos. 🍔<br>¡Buen provecho! 😄</p>
+							<p class="fs-5">Así que ya estamos listos para disfrutar de una deliciosa hamburguesa juntos. 🍔<br>¡Buen provecho! 😄</p>
 							<button class="btn btn-primary" id="signIn">Iniciar sesión</button>
 						</div>
 						<div class="overlay-panel overlay-right">
 							<h1>¡Bienvenido! 🍔</h1>
-							<p>¿Te apetece una hamburguesa deliciosa? ¡Únete a nosotros y disfruta de una experiencia culinaria increíble!</p>
+							<p class="fs-5">¿Te apetece una hamburguesa deliciosa? ¡Únete a nosotros y disfruta de una experiencia culinaria increíble!</p>
 							<button class="btn btn-primary ghost" id="signUp">Registrarse</button>
 						</div>
 					</div>
@@ -75,6 +85,8 @@
     </main>
 	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="./js/app.js"></script>
+    <script type="module" src="./js/app.js"></script>
+	<script type="module" src="./js/registro.js"></script>
+	<script type="module" src="./js/login.js"></script>
 </body>
 </html>
