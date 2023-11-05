@@ -1,5 +1,5 @@
 import { getFromData } from "./utils.js";
-import db from '../fakeDb/db.json' assert {type: 'json'};
+import db from "../fakeDb/db.json" assert {type: "json"};
 
 
 
@@ -15,18 +15,37 @@ const registro = (e) => {
     passwordInput.classList.remove('is-invalid');
 
     const formData = getFromData(e);
-    const userExist = db.users.find((user) => user.email === formData.email_IS);
 
     
+    let users = JSON.parse(localStorage.getItem('users')) || [];
 
+    
+    const userExistInList = users.find((user) => user.email === formData.email_Registro);
 
-    if (!userExist) {
+    const successAlert = document.getElementById('successAlert');
+    const errorAlert = document.getElementById('errorAlert');
+
+    if (userExistInList) {
         emailInput.classList.add('is-invalid');
+        errorAlert.style.display = 'block';
         return;
     }
-    
 
+    
+    const newUser = {
+        nombre: formData.nombreApe_Registro,
+        rol: "usuario",
+        email: formData.email_Registro,
+        password: formData.password_Registro
+    };
+
+    users.push(newUser);
+
+    
+    localStorage.setItem('users', JSON.stringify(users));
+
+    
+    successAlert.style.display = 'block';
 };
 
-document.getElementById("userFormRegistro").addEventListener("submit",registro);
-
+document.getElementById("userFormRegistro").addEventListener("submit", registro);
