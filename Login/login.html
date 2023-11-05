@@ -37,13 +37,9 @@
                                 
                                 <button type="submit" class="btn btn-primary" id="guardar_Registro">Registrarse</button>
 
-                                <!-- Mensajes de alerta -->
-                                <div class="alert alert-success" id="successAlert" style="display: none;">
-                                    ¡Registro exitoso! Puedes iniciar sesión ahora.
-                                </div>
-                                <div class="alert alert-danger" id="errorAlert" style="display: none;">
-                                    El usuario ya existe. Por favor, inicia sesión.
-                                </div>
+								<!-- Mensajes de alerta -->
+								<div class="alert alert-success" id="successAlert" style="display: none;">¡Registro exitoso! Puedes iniciar sesión ahora.</div>
+								<div class="alert alert-danger" id="errorAlert" style="display: none;">El usuario ya existe. Por favor, inicia sesión.</div>
                             </form>
                         </div>
                     </div>
@@ -62,7 +58,7 @@
 								<span>o usa tu cuenta</span>
 								<input  id="email_IS" type="email" class="form-control" placeholder="Correo Electrónico" required name="email_IniciarSesion" minlength="10" maxlength="50">
 								<div class="invalid-feedback">
-								El usuario no se encuentra.
+								El usuario no registrado.
 								</div>
 								<input id="password_IS" type="password" class="form-control" placeholder="Contraseña" required name="password_IniciarSesion" minlength="8" maxlength="16">
 								<div class="invalid-feedback">
