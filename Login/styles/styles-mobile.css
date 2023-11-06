@@ -18,7 +18,6 @@ a:hover {
 }
 
 
-
 .contenedor-tabs li a {
     display: block;
     text-decoration: none;
@@ -114,9 +113,6 @@ input {
     text-decoration: none;
 }
 
-.button-block {
-    display: block;
-}
 
 .forgot {
     margin-top: -20px;
