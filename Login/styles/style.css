@@ -196,7 +196,7 @@ input {
     width: 25px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 580px) {
     .container {
         display: none;
     }
