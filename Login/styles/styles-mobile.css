@@ -2,30 +2,22 @@ a {
     text-decoration: none;
     transition: .5s ease;
 }
+main {
+    background-image: url('https://i.postimg.cc/Y9vTsv1D/logo-proyecto-version-3.png');
+    background-size: contain;
+    background-position: center;
+}
 
 a:hover {
     text-decoration: none;
 }
 
 .contenedor-formularios {
-    padding: 40px;
-    max-width: 600px;
-    margin: 40px auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
 }
 
-.contenedor-tabs {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-}
 
-.contenedor-tabs:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
 .contenedor-tabs li a {
     display: block;
@@ -47,22 +39,17 @@ a:hover {
     text-decoration: none;
 }
 
-.contenido-tab > div:last-child {
-    display: none;
-}
+
 
 h1 {
     text-align: center;
     font-weight: 300;
-    margin: 0 0 40px;
 }
 
 label {
     position: absolute;
     transform: translateY(6px);
-    left: 13px;
     transition: all 0.25s ease;
-    
     pointer-events: none;
     font-size: 22px;
 }
@@ -84,8 +71,6 @@ label.highlight {
 input {
     font-size: 22px;
     display: block;
-    width: 100%;
-    height: 100%;
     padding: 5px 10px;
     border: 1px solid #ddd;
     border-top: none;
@@ -108,7 +93,6 @@ input {
 
 .fila-arriba div {
     float: left;
-    width: 48%;
     margin-right: 4%;
 }
 
@@ -132,22 +116,11 @@ input {
 
 .button-block {
     display: block;
-    width: 100%;
 }
 
 .forgot {
     margin-top: -20px;
     text-align: right;
     margin-bottom: 20px;
-}
-
-
-@media (max-width: 580px) {
-    .mobile-background {
-        background-image: url('https://i.postimg.cc/Y9vTsv1D/logo-proyecto-version-3.png');
-        background-size: cover;
-        background-position: center;
-        padding: 20px;
-    }
 }
 

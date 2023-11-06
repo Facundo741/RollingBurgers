@@ -13,6 +13,7 @@ function showErrorMessage(message) {
 }
 
 const login = (e) => {
+    
     e.preventDefault();
 
     const emailInput = document.getElementById('email_IS');
