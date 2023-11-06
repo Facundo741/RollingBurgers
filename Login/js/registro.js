@@ -11,6 +11,7 @@ const showErrorMessage = (message) => {
 };
 
 const registro = (e) => {
+    
     e.preventDefault();
 
     const nameInput = document.getElementById('name_Reg');
