@@ -203,3 +203,10 @@ input {
 }
 
 
+
+
+#mobileFrame {
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    border: none; /* Quita el borde del iframe */
+}
