@@ -9,27 +9,20 @@
         },
         {
             "id": 2,
-            "nombre": "tester",
-            "rol": "tester",
-            "correo": "tester@gmail.com",
-            "password": "tester1234"
-        },
-        {
-            "id": 3,
             "nombre": "Facundo Santillan",
             "rol": "usuario",
             "correo": "santillanfacundo@gmail.com",
             "password": "santillan1234"
         },
         {
-            "id": 4,
+            "id": 3,
             "nombre": "Juan Pablo Fortuny",
             "rol": "usuario",
             "correo": "jpfortuny@gmail.com",
             "password": "fortuny1234"
         },
         {
-            "id": 5,
+            "id": 4,
             "nombre": "Facundo Singh",
             "rol": "usuario",
             "correo": "facundosingh@gmail.com",

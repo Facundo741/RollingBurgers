@@ -51,7 +51,7 @@ const registro = (e) => {
 
     const userExistsLocalStorage = users.find((user) => user.email === lowercaseEmail);
 
-    // Buscar si el usuario ya existe en db.json
+    
     const userExistsDB = db.users.find((user) => user.correo === lowercaseEmail);
 
     if (userExistsLocalStorage || userExistsDB) {
