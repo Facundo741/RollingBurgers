@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detalles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/detalle.css">
+</head>
+<body>
+    <section class="contenedor">
+        <div class="mostrador" id="mostrador">
+            <img src="./img/almost veggie.jpg" class="imgveggie" alt="">
+            <div class="fila row p-5">
+                <div class="item col-sm-12 col-md-3" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="./img/warren veggie.jpg" alt="wveggie">
+                        <p class="descripcion">Warren Veggie</p>
+                        <span class="precio">$2.500</span>
+                        
+                    </div>
+                </div>
+                <div class="item col-sm-12 col-md-3" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="./img/amy veggie.jpg" alt="Aveggie">
+                        <p class="descripcion">Amy Veggie</p>
+                        <span class="precio">$2.200</span>
+                        
+                    </div>
+                </div>
+                <div class="item col-sm-12 col-md-3" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="./img/freddy veggie.jpg" alt="Fveggie">
+                        <p class="descripcion">Freddy Veggie</p>
+                        <span class="precio">$2.200</span>
+                            
+                     </div>
+                </div>
+
+                <div class="item col-sm-12 col-md-3 " onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="./img/norman veggie.jpg" alt="normanveggie">
+                        <p class="descripcion">Norman Veggie</p>
+                        <span class="precio">$2.500</span>
+                        
+                    </div>
+                </div>
+                <div class="item col-sm-12 col-md-3" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="./img/slash veggie.jpg" alt="Sveggie">
+                        <p class="descripcion">Slash Veggie</p>
+                        <span class="precio">$2.300</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seleccion ml-1 col-sm-12" id="seleccion">
+            <div class="cerrar" onclick="cerrar()">
+                &#x2715
+            </div>
+            <div class="info">
+                <img src="./img/simple cheeseburger.jpg" alt="" id="img">
+                <h2 id="modelo">Simple Cheeseburger</h2>
+                <p1 id="descripcion">Medallón de 100 gr de carne Angus, queso cheddar, cebolla brunoise y nuestra exquisita salsa Rolling</p1>
+                <span class="precio" id="precio">$ 1.300</span>
+                <div class="row">
+                    <div class="input">
+                    <input type="number" value="0">
+                </div>
+                <div class="fila">
+                    <button class="btn carrito">Agregar al Carrito</button>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/detalle.js"></script>
+</body>
+</html>
