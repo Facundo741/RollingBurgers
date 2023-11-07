@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "nombre": "admin",
+            "rol": "administrador",
+            "correo": "admin@gmail.com",
+            "password": "admin1234"
+        },
+        {
+            "id": 2,
+            "nombre": "Facundo Santillan",
+            "rol": "usuario",
+            "correo": "santillanfacundo@gmail.com",
+            "password": "santillan1234"
+        },
+        {
+            "id": 3,
+            "nombre": "Juan Pablo Fortuny",
+            "rol": "usuario",
+            "correo": "jpfortuny@gmail.com",
+            "password": "fortuny1234"
+        },
+        {
+            "id": 4,
+            "nombre": "Facundo Singh",
+            "rol": "usuario",
+            "correo": "facundosingh@gmail.com",
+            "password": "singh1234"
+        }
+    ]
+}
+

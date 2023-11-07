@@ -1,0 +1,122 @@
+a {
+    text-decoration: none;
+    transition: .5s ease;
+}
+main {
+    background-image: url('https://i.postimg.cc/Y9vTsv1D/logo-proyecto-version-3.png');
+    background-size: contain;
+    background-position: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.contenedor-formularios {
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.contenedor-tabs li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.contenedor-tabs li a:hover {
+    text-decoration: none;
+}
+
+.contenedor-tabs .active a {
+    text-decoration: none;
+}
+
+
+
+h1 {
+    text-align: center;
+    font-weight: 300;
+}
+
+label {
+    position: absolute;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+    font-size: 22px;
+}
+
+label .req {
+    margin: 2px;
+}
+
+label.active {
+    transform: translateY(50px);
+    left: 2px;
+    font-size: 14px;
+}
+
+label.highlight {
+    text-decoration: none;
+}
+
+input {
+    font-size: 22px;
+    display: block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    transition: all 0.5s ease;
+}
+
+.contenedor-input {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.fila-arriba:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fila-arriba div {
+    float: left;
+    margin-right: 4%;
+}
+
+.fila-arriba div:last-child {
+    margin: 0;
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px 0;
+    font-size: 2rem;
+    transition: all 0.5s ease;
+}
+
+.button:hover, .button:focus {
+    text-decoration: none;
+}
+
+
+.forgot {
+    margin-top: -20px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
