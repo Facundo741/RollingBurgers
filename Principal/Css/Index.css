@@ -1,0 +1,12 @@
+main{
+    background-color: black;
+}
+
+.content{
+    height: 100vh;
+}
+
+.titulo{
+    font-size: 4rem;
+    color: white;
+}
