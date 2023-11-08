@@ -10,8 +10,7 @@ function Validaciones() {
     return true;
 }
 
-function leer(e) {
-    e.preventDefault();
+function leer() {
     let listar = JSON.parse(localStorage.getItem('listar')) || [];
     const tableBody = document.getElementById('Tabledatos');
     tableBody.innerHTML = '';
@@ -24,7 +23,7 @@ function leer(e) {
             <td class="text-center">${element.Nombre}</td>
             <td class="text-center">${element.Precio}</td>
             <td class="text-center">${element.Categoria}</td>
-            <td ><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
+            <td><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
             <td class="text-center">${element.Descripcion}</td>
             <td class="text-center">${element.Stock}</td>
             <td class="text-center">
@@ -36,8 +35,9 @@ function leer(e) {
         tableBody.appendChild(row);
     });
 
-    // Llama a leerprincipal después de actualizar los datos
-    leerprincipal();
+    
+    // leerprincipal();
+    
 }
 
 function addData() {
@@ -65,13 +65,9 @@ function addData() {
 function deleteData(index) {
     let listar = JSON.parse(localStorage.getItem('listar')) || [];
 
-    // Elimina el elemento del array
     listar.splice(index, 1);
-
-    // Actualiza la información en el almacenamiento local
     localStorage.setItem('listar', JSON.stringify(listar));
-
-    // Actualiza la vista
+    
     leer();
 }
 
@@ -106,9 +102,8 @@ function editData(index) {
     }
 }
 
-// Resto de tu código
-
-function leerprincipal() {
+/*function leerprincipal() {
+    
     const cards = document.getElementById("cards");
     cards.innerHTML = '';
 
@@ -138,8 +133,13 @@ function leerprincipal() {
 
         cards.appendChild(card);
     });
-}
-// Llama a leer para mostrar los datos en la tabla
+    
+}*/
+
+
+
 leer();
-leerprincipal();
+//leerprincipal();
+
+
 
