@@ -139,7 +139,7 @@ function leerprincipal() {
         cards.appendChild(card);
     });
 }
-
-leerprincipal();
 // Llama a leer para mostrar los datos en la tabla
 leer();
+leerprincipal();
+
