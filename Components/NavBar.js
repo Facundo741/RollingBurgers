@@ -1,7 +1,10 @@
 const header = document.querySelector('header');
 
 const navbar = () => {
-    const user = localStorage.getItem('email_IS');
+
+    const user = JSON.parse(localStorage.getItem('userLog'));
+
+
     console.log(user);
     return (header.innerHTML = `
             <nav class="navbar navbar-expand-lg bg-body-tertiary ">
@@ -21,9 +24,8 @@ const navbar = () => {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
+                
+                ${user.rol === "administrador" ?  '<li class="nav-item"><a class="nav-link" href="/Admin/Admin.html">Administracion</a></li>': ' hola'}
                 </ul>
             </div>
             </div>
