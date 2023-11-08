@@ -5,7 +5,7 @@
  */
 
 
-export const getFromData = (e) => {
+export const getFormData = (e) => {
     const formData = new FormData(e.target);
     const formObject = {};
     for (const [key, value] of formData.entries()) {

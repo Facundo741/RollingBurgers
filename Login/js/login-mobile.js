@@ -1,4 +1,4 @@
-import { getFromData } from './utils.js';
+import { getFormData } from './utils.js';
 import db from '../fakeDb/db.json' assert {type: 'json'};
 
 const localStorageUsers = JSON.parse(localStorage.getItem('users')) || [];
