@@ -3,6 +3,7 @@ import db from '../fakeDb/db.json' assert {type: 'json'};
 
 const localStorageUsers = JSON.parse(localStorage.getItem('users')) || [];
 
+
 function showErrorMessage(message) {
     const errorAlert = document.createElement('div');
     errorAlert.classList.add('alert', 'alert-danger');
@@ -19,39 +20,26 @@ const login = (e) => {
     emailInput.classList.remove('is-invalid');
     passwordInput.classList.remove('is-invalid');
 
-    const formData = new FormData(document.getElementById('loginForm'));
-    const emailInputValue = formData.get('email_login');
-    const passwordInputValue = formData.get('password_login');
+    const formData = getFormData(e);
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const dbUser = db.users.find((user) => user.correo === formData.email_loginI);
 
-    if (!emailRegex.test(emailInputValue)) {
-        emailInput.classList.add('is-invalid');
-        showErrorMessage('Correo electrónico no válido.');
-        return;
-    }
+    
+    let user = localStorageUsers.find((user) => user.email === formData.email_loginI);
 
-    const localStorageUser = localStorageUsers.find((user) => user.email === emailInputValue);
-
-    if (localStorageUser) {
-        if (localStorageUser.password === passwordInputValue) {
-            window.location.href = '../Principal/index.html';
-        } else {
-            passwordInput.classList.add('is-invalid');
-            showErrorMessage('La contraseña es incorrecta.');
-        }
-        return;
-    }
-
-    const dbUser = db.users.find((user) => user.correo === emailInputValue);
-
-    if (!dbUser) {
+    if (!dbUser && !user) {
         emailInput.classList.add('is-invalid');
         showErrorMessage('El usuario no existe.');
         return;
     }
 
-    if (dbUser.password === passwordInputValue) {
+    if (dbUser && dbUser.password === formData.password_loginI) {
+        const userJson = JSON.stringify(dbUser);
+        localStorage.setItem('userLog', userJson);
+        window.location.href = '../Principal/index.html';
+    } else if (user && user.password === formData.password_loginI) {
+        const userJson = JSON.stringify(user);
+        localStorage.setItem('userLog', userJson);
         window.location.href = '../Principal/index.html';
     } else {
         passwordInput.classList.add('is-invalid');
@@ -60,4 +48,3 @@ const login = (e) => {
 };
 
 document.getElementById('loginForm').addEventListener('submit', login);
-
