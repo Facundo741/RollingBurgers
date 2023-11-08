@@ -24,15 +24,8 @@ const registro = (e) => {
     passwordInput.classList.remove('is-invalid');
     errorAlert.style.display = 'none';
 
-    const formData = getFromData(e);
+    const formData = getFormData(e);
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailRegex.test(formData.email_Registro)) {
-        emailInput.classList.add('is-invalid');
-        errorAlert.style.display = 'block';
-        errorAlert.textContent = 'Correo electrónico no válido.';
-        return;
-    }
 
     if (formData.nombreApe_Registro.length < 10) {
         nameInput.classList.add('is-invalid');
