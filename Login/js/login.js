@@ -27,9 +27,6 @@ const login = (e) => {
     const dbUser = db.users.find((user) => user.correo === formData.email_IniciarSesion);
     
     
-    
-    
-
     if (!dbUser) {
         emailInput.classList.add('is-invalid');
         showErrorMessage('El usuario no existe.');
