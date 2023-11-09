@@ -8,7 +8,7 @@ const createFooter = () => {
     &copy; 2023 Mi Página Web. Todos los derechos reservados.
         <div class="d-flex justify-content-center ">
         
-                            <a class="nav-link active text-light p-2" aria-current="page" href=".../index.html">Inicio</a>
+                            <a class="nav-link active text-light p-2" aria-current="page" href="/index.html">Inicio</a>
                         
                             <a class="nav-link text-light p-2" href="../About/aboutme.html">Acerca de</a>
                         
