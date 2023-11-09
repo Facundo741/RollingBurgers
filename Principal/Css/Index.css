@@ -2,6 +2,14 @@ main{
     background-color: black;
 }
 
+footer {
+    margin: 0; /* Para eliminar márgenes predeterminados */
+    padding: 0; /* Para eliminar rellenos predeterminados */
+    border: none; /* Para eliminar cualquier borde */
+}
+
+
+
 .content{
     height: 100vh;
 }
