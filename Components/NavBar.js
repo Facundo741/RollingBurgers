@@ -22,7 +22,7 @@ const createNavbar = () => {
                         ${user ? '' :
                             '<li class="nav-item "><a class="nav-link text-light " id="iniciarSesionLink" href="../Login/login.html">Iniciar Sesión</a></li>' }
                         ${user ? 
-                            '<li class="nav-item"><a class="nav-link text-light" id="cerrarSesionLink" href="/index.html">Cerrar Sesión</a></li>' : ''}
+                            '<li class="nav-item"><a class="nav-link text-light" id="cerrarSesionLink" href="../Principal/index.html">Cerrar Sesión</a></li>' : ''}
                         
                         ${user && user.rol === "administrador" ? 
                             '<li class="nav-item"><a class="nav-link text-light" href="/Admin/Admin.html">Administracion</a></li>' : ''}
@@ -32,15 +32,17 @@ const createNavbar = () => {
         </nav>
     `;
     const cerrarSesionLink = document.getElementById('cerrarSesionLink');
-    if (cerrarSesionLink) {
-        cerrarSesionLink.addEventListener('click', function (e) {
-            e.preventDefault(); 
-            localStorage.clear();
-            window.location.href = '/index.html';
-        });
-    }
+if (cerrarSesionLink) {
+    cerrarSesionLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('userLog'); // Elimina la información del usuario del localStorage
+        window.location.reload(); // Recarga la página actual
+    });
+}
+
 }
 
 document.addEventListener('DOMContentLoaded', createNavbar);
 
 export default createNavbar;
+
