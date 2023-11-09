@@ -11,7 +11,7 @@ function Validaciones() {
 }
 
 function leer() {
-    const listar = JSON.parse(localStorage.getItem('listar')) || [];
+    let listar = JSON.parse(localStorage.getItem('listar')) || [];
     const tableBody = document.getElementById('Tabledatos');
     tableBody.innerHTML = '';
 
@@ -23,7 +23,7 @@ function leer() {
             <td class="text-center">${element.Nombre}</td>
             <td class="text-center">${element.Precio}</td>
             <td class="text-center">${element.Categoria}</td>
-            <td ><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
+            <td><img src="${element.Imagenes}" alt="Imagen" style="max-height: 50px"></td>
             <td class="text-center">${element.Descripcion}</td>
             <td class="text-center">${element.Stock}</td>
             <td class="text-center">
@@ -33,7 +33,11 @@ function leer() {
         `;
 
         tableBody.appendChild(row);
-    });
+    });
+
+    
+    // leerprincipal();
+    
 }
 
 function addData() {
@@ -48,26 +52,30 @@ function addData() {
             Stock: document.getElementById("exampleStock").value
         };
 
-        const listar = JSON.parse(localStorage.getItem('listar')) || [];
+        let listar = JSON.parse(localStorage.getItem('listar')) || [];
         listar.push(newItem);
+
+        // Actualiza la información en el almacenamiento local
         localStorage.setItem('listar', JSON.stringify(listar));
+
         leer();
     }
 }
 
 function deleteData(index) {
-    const listar = JSON.parse(localStorage.getItem('listar')) || [];
+    let listar = JSON.parse(localStorage.getItem('listar')) || [];
+
     listar.splice(index, 1);
     localStorage.setItem('listar', JSON.stringify(listar));
+    
     leer();
 }
-
 
 function editData(index) {
     document.getElementById('btnAdd').style.display = 'none';
     document.getElementById('upbtnAdd').style.display = 'block';
 
-    const listar = JSON.parse(localStorage.getItem('listar')) || [];
+    let listar = JSON.parse(localStorage.getItem('listar')) || [];
     const item = listar[index];
 
     const fields = ["exampleCode", "exampleNombre", "examplePrecio", "exampleCategoria", "exampleImg", "exampleDescripción", "exampleStock"];
@@ -83,7 +91,9 @@ function editData(index) {
                 document.getElementById(field).value = "";
             }
 
+            // Actualiza la información en el almacenamiento local
             localStorage.setItem('listar', JSON.stringify(listar));
+
             leer();
 
             document.getElementById('btnAdd').style.display = 'block';
@@ -92,6 +102,44 @@ function editData(index) {
     }
 }
 
-//camios
+/*function leerprincipal() {
+    
+    const cards = document.getElementById("cards");
+    cards.innerHTML = '';
+
+    const listar = JSON.parse(localStorage.getItem('listar')) || [];
+
+    listar.forEach((element, i) => {
+        const card = document.createElement("div");
+        card.classList.add("carousel-item");
+        if (i === 0) {
+            card.classList.add("active");
+        }
+
+        card.innerHTML = `
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="${element.Imagenes}" alt="Card image" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">${element.Nombre}</h5>
+                            <p class="card-text">${element.Descripcion}</p>
+                            <p>Precio: ${element.Precio}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        cards.appendChild(card);
+    });
+    
+}*/
+
+
+
 leer();
+//leerprincipal();
+
+
 

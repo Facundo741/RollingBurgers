@@ -4,22 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Css/Index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <title>NombreProyecto</title>
 </head>
 <body>
     <header>
-
     </header>
 
     <main>
-        <h1>hola prueba</h1>
+
+        <div class="container-fluid content d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div class="bienvenido mb-3">
+                    <h1 class="text-center titulo">¡Bienvenido a Rolling Burguers!</h1>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid" src="../Asset (imagenes)/flecha-blanca-fondo-negro.gif" alt="gif-flecha">
+                </div>
+            </div>    
+        </div>
+        <div class="container-fluid d-flex justify-content-around align-items-center">
+            <div class="row align-items-center">
+
+                <div class="col-12 col-md-6 text-center text-light">
+                    <h2>Super Rolling</h2>
+                    <p>La "Super Rolling" es una hamburguesa emblemática y única en su estilo, que ha ganado renombre en el mundo de la comida rápida. Esta hamburguesa es conocida por su generosidad en ingredientes y su llamativa presentación que evoca la emoción y la estética de una batalla aérea. A continuación, te proporcionaré una breve descripción e historia de la "Super Rolling".
+                    </p> 
+                    <p class="d-none d-lg-block">**Descripción de la "Super Rolling"**: Doble Carne - Lechuga y Tomate - Huevo - cheddar y consta con variedades de aderesos.
+                    </p>
+                    <p>La "Super Rolling" tiene sus raíces en el restaurante "RollingBurger" en la Argentina, que se inspiró en la historia de la aviación y la Segunda Guerra Mundial. Creada en la década de 1960, esta hamburguesa temática homenajea a los héroes de la aviación. Su presentación única con un diseño de aviones y bombas en el pan la ha convertido en un emblema de la creatividad culinaria. La "Super Rolling" sigue siendo una hamburguesa que celebra la historia de la aviación y ofrece una experiencia emocionante y deliciosa para los amantes de las hamburguesas.</p>
+                </div>
+                <div class="col-12 col-md-6 text-center ">
+                    <img class="img-fluid" src="../Asset (imagenes)/burguercopia1.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <section class="pt-5 pb-5 container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="text-start">
+                        <a class="btn btn-primary mb-3" href="#myCarousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-end">
+                        <a class="btn btn-primary mb-3" href="#myCarousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  
+                </div>
+              </div>
+        </section>
     </main>
 
     <footer>
-        
+        <h1>footer</h1>
     </footer>
 
-
     <script src="./Js/Appindex.js"></script>
+    <script type="module" src="./Js/appnav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
