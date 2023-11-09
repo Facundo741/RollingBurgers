@@ -35,11 +35,11 @@ const login = (e) => {
     if (dbUser && dbUser.password === formData.password_IniciarSesion) {
         const userJson = JSON.stringify(dbUser);
         localStorage.setItem('userLog', userJson);
-        window.location.href = '../Principal/index.html';
+        window.location.href = '../index.html';
     } else if (user && user.password === formData.password_IniciarSesion) {
         const userJson = JSON.stringify(user);
         localStorage.setItem('userLog', userJson);
-        window.location.href = '../Principal/index.html';
+        window.location.href = '../index.html';
     } else {
         passwordInput.classList.add('is-invalid');
         showErrorMessage('La contraseña es incorrecta.');

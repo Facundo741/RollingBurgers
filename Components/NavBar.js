@@ -14,7 +14,7 @@ const createNavbar = () => {
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active text-light" aria-current="page" href="../Principal/index.html">Inicio</a>
+                            <a class="nav-link active text-light" aria-current="page" href="/index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="../About/aboutme.html">Acerca de</a>
@@ -22,7 +22,7 @@ const createNavbar = () => {
                         ${user ? '' :
                             '<li class="nav-item "><a class="nav-link text-light " id="iniciarSesionLink" href="../Login/login.html">Iniciar Sesión</a></li>' }
                         ${user ? 
-                            '<li class="nav-item"><a class="nav-link text-light" id="cerrarSesionLink" href="../Principal/index.html">Cerrar Sesión</a></li>' : ''}
+                            '<li class="nav-item"><a class="nav-link text-light" id="cerrarSesionLink" href="/index.html">Cerrar Sesión</a></li>' : ''}
                         
                         ${user && user.rol === "administrador" ? 
                             '<li class="nav-item"><a class="nav-link text-light" href="/Admin/Admin.html">Administracion</a></li>' : ''}
@@ -36,7 +36,7 @@ const createNavbar = () => {
         cerrarSesionLink.addEventListener('click', function (e) {
             e.preventDefault(); 
             localStorage.clear();
-            window.location.href = '../Principal/index.html';
+            window.location.href = '/index.html';
         });
     }
 }
