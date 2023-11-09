@@ -1,6 +1,5 @@
-import { getFromData } from './utils.js';
+import { getFormData } from './utils.js';
 import db from '../fakeDb/db.json' assert {type: 'json'};
-
 
 const localStorageUsers = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -13,7 +12,6 @@ function showErrorMessage(message) {
 }
 
 const login = (e) => {
-    
     e.preventDefault();
 
     const emailInput = document.getElementById('email_IS');
@@ -21,41 +19,26 @@ const login = (e) => {
     emailInput.classList.remove('is-invalid');
     passwordInput.classList.remove('is-invalid');
 
-    const formData = new FormData(document.getElementById('userFormLogin'));
-    const emailInputValue = formData.get('email_IniciarSesion');
-    const passwordInputValue = formData.get('password_IniciarSesion');
+    const formData = getFormData(e);
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-    if (!emailRegex.test(emailInputValue)) {
-        emailInput.classList.add('is-invalid');
-        showErrorMessage('Correo electrónico no válido.');
-        return;
-    }
+    const dbUser = db.users.find((user) => user.correo === formData.email_IniciarSesion);
 
     
-    const localStorageUser = localStorageUsers.find((user) => user.email === emailInputValue);
+    let user = localStorageUsers.find((user) => user.email === formData.email_IniciarSesion);
 
-    if (localStorageUser) {
-        if (localStorageUser.password === passwordInputValue) {
-            window.location.href = '../Principal/index.html';
-        } else {
-            passwordInput.classList.add('is-invalid');
-            showErrorMessage('La contraseña es incorrecta.');
-        }
-        return;
-    }
-
-    
-    const dbUser = db.users.find((user) => user.correo === emailInputValue);
-
-    if (!dbUser) {
+    if (!dbUser && !user) {
         emailInput.classList.add('is-invalid');
         showErrorMessage('El usuario no existe.');
         return;
     }
 
-    if (dbUser.password === passwordInputValue) {
+    if (dbUser && dbUser.password === formData.password_IniciarSesion) {
+        const userJson = JSON.stringify(dbUser);
+        localStorage.setItem('userLog', userJson);
+        window.location.href = '../Principal/index.html';
+    } else if (user && user.password === formData.password_IniciarSesion) {
+        const userJson = JSON.stringify(user);
+        localStorage.setItem('userLog', userJson);
         window.location.href = '../Principal/index.html';
     } else {
         passwordInput.classList.add('is-invalid');

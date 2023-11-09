@@ -1,4 +1,4 @@
-import { getFromData } from "./utils.js";
+import { getFormData } from "./utils.js";
 import db from "../fakeDb/db.json" assert {type: "json"};
 
 const showErrorMessage = (message) => {
@@ -23,7 +23,7 @@ const registro = (e) => {
     passwordInput.classList.remove('is-invalid');
     errorAlert.style.display = 'none';
 
-    const formData = getFromData(e);
+    const formData = getFormData(e);
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailRegex.test(formData.email_register)) {
