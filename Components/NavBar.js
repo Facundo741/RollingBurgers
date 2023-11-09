@@ -1,5 +1,3 @@
-// navbar.js
-
 const header = document.querySelector('header');
 
 const createNavbar = () => {
@@ -35,8 +33,8 @@ const createNavbar = () => {
 if (cerrarSesionLink) {
     cerrarSesionLink.addEventListener('click', function (e) {
         e.preventDefault();
-        localStorage.removeItem('userLog'); // Elimina la información del usuario del localStorage
-        window.location.reload(); // Recarga la página actual
+        localStorage.removeItem('userLog'); 
+        window.location.reload(); 
     });
 }
 
